@@ -85,7 +85,7 @@
             bindings = <
         &kp ESC    &kp HOME   &kp UP_ARROW    &kp END    &kp RC(F)    &kp EQUAL              &kp KP_N7        &kp KP_N8        &kp KP_N9  &kp RGUI
         &kp TAB    &kp LEFT   &kp DOWN_ARROW  &kp RIGHT  &kp RC(S)    &kp TAB                &kp KP_N4        &kp KP_N5        &kp KP_N6  &kp RCTRL
-&tog 6  &kp RC(Z)  &kp RC(X)  &kp RC(C)       &kp RC(V)  &kp RC(A)    &kp MINUS              &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_N3  &kp RALT   &trans
+&tog 6  &kp RC(Z)  &kp RC(X)  &kp RC(C)       &kp RC(V)  &kp RC(A)    &kp MINUS              &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_N3  &kp RALT   &kp KP_NUMLOCK
                               &trans          &trans     &trans       &mt RIGHT_SHIFT ENTER  &mt RCTRL KP_N0  &trans
             >;
         };
@@ -128,10 +128,10 @@
 
         ADMIN {
             bindings = <
-        &none   &none       &none           &sys_reset  &none          &none  &none  &none  &none  &none
-        &none   &bt BT_PRV  &studio_unlock  &bt BT_NXT  &none          &none  &none  &none  &none  &none
-&tog 6  &tog 0  &none       &none           &none       &bootloader    &none  &none  &none  &none  &none  &none
-                            &none           &none       &none          &none  &none  &none
+        &bt BT_CLR_ALL  &none         &none           &sys_reset    &none          &none  &none  &none  &none  &none
+        &none           &bt BT_SEL 0  &studio_unlock  &bt BT_SEL 1  &none          &none  &kp T  &kp S  &kp E  &kp T
+&tog 6  &tog 0          &bt BT_SEL 2  &bt BT_SEL 3    &bt BT_SEL 4  &bootloader    &none  &none  &none  &none  &none  &none
+                                      &none           &none         &none          &none  &none  &none
             >;
         };
     };
