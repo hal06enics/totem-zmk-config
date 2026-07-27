@@ -11,6 +11,7 @@
 // ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
 
 #include <behaviors.dtsi>
+#include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 
 #define BASE 0
@@ -82,10 +83,10 @@
 
         NAV {
             bindings = <
-                &kp ESC    &kp HOME   &kp UP_ARROW    &kp END    &kp RC(F)    &kp EQUAL              &kp KP_N7        &kp KP_N8        &kp KP_N9  &kp RGUI
-                &kp TAB    &kp LEFT   &kp DOWN_ARROW  &kp RIGHT  &kp RC(S)    &kp TAB                &kp KP_N4        &kp KP_N5        &kp KP_N6  &kp RCTRL
-&studio_unlock  &kp RC(Z)  &kp RC(X)  &kp RC(C)       &kp RC(V)  &kp RC(A)    &kp MINUS              &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_N3  &kp RALT   &trans
-                                      &trans          &trans     &trans       &mt RIGHT_SHIFT ENTER  &mt RCTRL KP_N0  &trans
+        &kp ESC    &kp HOME   &kp UP_ARROW    &kp END    &kp RC(F)    &kp EQUAL              &kp KP_N7        &kp KP_N8        &kp KP_N9  &kp RGUI
+        &kp TAB    &kp LEFT   &kp DOWN_ARROW  &kp RIGHT  &kp RC(S)    &kp TAB                &kp KP_N4        &kp KP_N5        &kp KP_N6  &kp RCTRL
+&tog 6  &kp RC(Z)  &kp RC(X)  &kp RC(C)       &kp RC(V)  &kp RC(A)    &kp MINUS              &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_N3  &kp RALT   &trans
+                              &trans          &trans     &trans       &mt RIGHT_SHIFT ENTER  &mt RCTRL KP_N0  &trans
             >;
         };
 
@@ -122,6 +123,15 @@
         &mt LCTRL A  &mt LEFT_WIN S  &mt LEFT_ALT D  &mt LCTRL F  &kp G    &kp H     &mt RCTRL J  &mt RIGHT_ALT K  &mt LEFT_WIN L  &mt RCTRL SEMICOLON
 &trans  &kp Z        &kp X           &kp C           &kp V        &kp B    &kp N     &kp M        &kp COMMA        &kp DOT         &kp FSLH             &none
                                      &none           &none        &none    &kp BSPC  &none        &none
+            >;
+        };
+
+        ADMIN {
+            bindings = <
+        &none   &none       &none           &sys_reset  &none          &none  &none  &none  &none  &none
+        &none   &bt BT_PRV  &studio_unlock  &bt BT_NXT  &none          &none  &none  &none  &none  &none
+&tog 6  &tog 0  &none       &none           &none       &bootloader    &none  &none  &none  &none  &none  &none
+                            &none           &none       &none          &none  &none  &none
             >;
         };
     };
