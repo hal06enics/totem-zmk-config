@@ -32,33 +32,69 @@
     combos {
         compatible = "zmk,combos";
 
-        combo_esc {
-            timeout-ms = <50>;
-            key-positions = <0 1>;
-            bindings = <&kp ESC>;
+        alpha_ss {
+            bindings = <&sl 4>;
+            key-positions = <20 37>;
         };
 
-        combo_tvp {
-            timeout-ms = <100>;
-            key-positions = <11 12 13>;
-            bindings = <&tog 0>;
+        symbol_ss {
+            bindings = <&tog 5>;
+            key-positions = <31 32>;
         };
     };
 
     macros {
-        gif: gif {
-            label = "giphy";
+        alpha_ss_layer_check: alpha_ss_layer_check {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&macro_press>,
-                <&kp LSHFT>,
                 <&macro_tap>,
-                <&kp N2>,
-                <&macro_release>,
-                <&kp LSHFT>,
+                <&kp LS(LA(LC(LG(N4))))>,
                 <&macro_tap>,
-                <&kp G &kp I &kp F>;
+                <&kp LS(A) &kp L &kp P &kp H &kp A &kp SPACE &kp LS(S) &kp LS(S) &kp SPACE &kp LS(L) &kp A &kp Y &kp E &kp R>,
+                <&macro_tap>,
+                <&sl 4>;
+
+            label = "ALPHA_SS_LAYER_CHECK";
+        };
+
+        symbol_ss_layer_check: symbol_ss_layer_check {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_tap>,
+                <&kp LS(LA(LC(LG(N5))))>,
+                <&macro_tap>,
+                <&kp LS(S) &kp Y &kp M &kp B &kp O &kp L &kp SPACE &kp LS(S) &kp LS(S) &kp SPACE &kp LS(L) &kp A &kp Y &kp E &kp R>,
+                <&macro_tap>,
+                <&sl 5>;
+
+            label = "SYMBOL_SS_LAYER_CHECK";
+        };
+
+        admin_layer_check: admin_layer_check {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_tap>,
+                <&kp LS(LA(LC(LG(N6))))>,
+                <&macro_tap>,
+                <&kp LS(A) &kp D &kp M &kp I &kp N &kp SPACE &kp LS(L) &kp A &kp Y &kp E &kp R>,
+                <&macro_tap>,
+                <&sl 6>;
+
+            label = "ADMIN_LAYER_CHECK";
+        };
+    };
+
+    behaviors {
+        holdtap_esc_delete: holdtap_esc_delete {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOLDTAP_ESC_DELETE";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
         };
     };
 
@@ -74,64 +110,64 @@
 
         ALPHA {
             bindings = <
-       &kp Q  &kp W  &kp E           &kp R  &kp T        &kp Y     &kp U  &kp I            &kp O    &kp P
-       &kp A  &kp S  &kp D           &kp F  &kp G        &kp H     &kp J  &kp K            &kp L    &kp SEMI
-&none  &kp Z  &kp X  &kp C           &kp V  &kp B        &kp N     &kp M  &kp COMMA        &kp DOT  &kp FSLH  &none
-                     &kp LEFT_SHIFT  &mo 1  &kp SPACE    &kp BSPC  &mo 2  &kp RIGHT_SHIFT
+           &kp Q  &kp W  &kp E           &kp R  &kp T        &kp Y     &kp U  &kp I            &kp O    &kp P
+           &kp A  &kp S  &kp D           &kp F  &kp G        &kp H     &kp J  &kp K            &kp L    &kp SEMI
+&kp LCTRL  &kp Z  &kp X  &kp C           &kp V  &kp B        &kp N     &kp M  &kp COMMA        &kp DOT  &kp FSLH  &kp RCTRL
+                         &kp LEFT_SHIFT  &mo 1  &kp SPACE    &kp BSPC  &mo 2  &kp RIGHT_SHIFT
             >;
         };
 
         NAV {
             bindings = <
-        &kp ESC    &kp HOME   &kp UP_ARROW    &kp END    &kp RC(F)    &kp EQUAL              &kp KP_N7        &kp KP_N8        &kp KP_N9  &kp RGUI
-        &kp TAB    &kp LEFT   &kp DOWN_ARROW  &kp RIGHT  &kp RC(S)    &kp TAB                &kp KP_N4        &kp KP_N5        &kp KP_N6  &kp RCTRL
-&tog 6  &kp RC(Z)  &kp RC(X)  &kp RC(C)       &kp RC(V)  &kp RC(A)    &kp MINUS              &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_N3  &kp RALT   &kp KP_NUMLOCK
-                              &trans          &trans     &trans       &mt RIGHT_SHIFT ENTER  &mt RCTRL KP_N0  &trans
+       &kp ESC      &kp HOME   &kp UP_ARROW    &kp END    &kp RC(F)    &kp NUMBER_3           &kp KP_N7        &kp KP_N8        &kp KP_N9  &kp RGUI
+       &kp LA(TAB)  &kp LEFT   &kp DOWN_ARROW  &kp RIGHT  &kp RC(S)    &kp NUMBER_2           &kp KP_N4        &kp KP_N5        &kp KP_N6  &kp RCTRL
+&sl 6  &kp RC(Z)    &kp RC(X)  &kp RC(C)       &kp RC(V)  &kp RC(A)    &kp NUMBER_1           &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_N3  &kp RALT   &kp KP_NUMLOCK
+                               &trans          &trans     &trans       &mt RIGHT_SHIFT ENTER  &mt RCTRL KP_N0  &kp DELETE
             >;
         };
 
         CODE {
             bindings = <
-              &kp ESC    &kp AT     &kp HASH   &kp PERCENT  &none      &kp BACKSLASH  &kp PIPE   &kp AMPS           &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS
-              &kp PLUS   &kp UNDER  &kp EQUAL  &kp MINUS    &none      &kp F2         &kp APOS   &kp DOUBLE_QUOTES  &kp LEFT_BRACE        &kp RIGHT_BRACE
-&kp CAPSLOCK  &kp RC(Y)  &kp CARET  &kp STAR   &kp DOLLAR   &none      &kp TILDE      &kp GRAVE  &kp LEFT_BRACKET   &kp RIGHT_BRACKET     &kp EXCL               &trans
-                                    &trans     &mo 3        &kp TAB    &trans         &trans     &trans
+              &kp ESC    &kp AT     &kp HASH            &kp PERCENT  &none      &kp BACKSLASH  &kp PIPE   &kp AMPS           &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS
+              &kp PLUS   &kp UNDER  &kp EQUAL           &kp MINUS    &none      &kp F2         &kp APOS   &kp DOUBLE_QUOTES  &kp LEFT_BRACE        &kp RIGHT_BRACE
+&kp CAPSLOCK  &kp RC(Y)  &kp CARET  &kp STAR            &kp DOLLAR   &none      &kp TILDE      &kp GRAVE  &kp LEFT_BRACKET   &kp RIGHT_BRACKET     &kp EXCL               &trans
+                                    &kp LA(LC(DELETE))  &mo 3        &kp TAB    &trans         &trans     &trans
             >;
         };
 
         MOUSE {
             bindings = <
-                &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
-                &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
-&studio_unlock  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-                                &trans  &trans  &trans    &trans  &trans  &trans
+       &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
+       &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
+&none  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+                       &trans  &trans  &trans    &trans  &trans  &trans
             >;
         };
 
         Alpha.SS {
             bindings = <
-        &kp Q        &kp W              &kp UP             &kp R            &kp T    &kp Y     &kp U        &kp I            &kp O           &kp P
-        &mt LCTRL A  &mt LEFT_WIN LEFT  &mt LEFT_ALT DOWN  &mt LCTRL RIGHT  &kp G    &kp H     &mt RCTRL J  &mt RIGHT_ALT K  &mt LEFT_WIN L  &mt RCTRL SEMICOLON
-&trans  &kp Z        &kp X              &kp C              &kp V            &kp B    &kp N     &kp M        &kp COMMA        &kp DOT         &kp FSLH             &none
-                                        &none              &none            &none    &kp BSPC  &tog 4       &none
+           &kp Q           &kp W           &kp E           &kp R   &kp T        &kp Y          &kp U                   &kp I            &kp O            &kp P
+           &mt LEFT_WIN A  &mt LEFT_ALT S  &kp D           &kp F   &kp G        &kp H          &kp J                   &kp K            &mt RIGHT_ALT L  &mt LEFT_WIN SEMI
+&kp LCTRL  &kp Z           &kp X           &kp C           &kp V   &kp B        &kp N          &kp M                   &kp COMMA        &kp DOT          &kp FSLH           &kp RIGHT_CONTROL
+                                           &kp LEFT_SHIFT  &tog 0  &kp SPACE    &kp BACKSPACE  &kp LS(LA(LC(LG(N4))))  &kp RIGHT_SHIFT
             >;
         };
 
         Symbol.SS {
             bindings = <
-        &kp Q        &kp W           &kp E           &kp R        &kp T    &kp Y     &kp U        &kp I            &kp O           &kp P
-        &mt LCTRL A  &mt LEFT_WIN S  &mt LEFT_ALT D  &mt LCTRL F  &kp G    &kp H     &mt RCTRL J  &mt RIGHT_ALT K  &mt LEFT_WIN L  &mt RCTRL SEMICOLON
-&trans  &kp Z        &kp X           &kp C           &kp V        &kp B    &kp N     &kp M        &kp COMMA        &kp DOT         &kp FSLH             &none
-                                     &none           &none        &none    &kp BSPC  &none        &tog 5
+           &kp ESC       &kp HOME       &kp UP          &kp END                 &kp F    &none  &none   &none            &none       &none
+           &mt LWIN TAB  &mt LALT LEFT  &kp DOWN        &kp RIGHT               &kp S    &none  &none   &none            &mt RALT F  &mt RWIN T
+&kp LCTRL  &kp Z         &kp X          &kp C           &kp V                   &kp A    &none  &none   &none            &none       &none       &kp RCTRL
+                                        &kp LEFT_SHIFT  &kp LS(LA(LC(LG(N5))))  &none    &none  &tog 0  &kp RIGHT_SHIFT
             >;
         };
 
         ADMIN {
             bindings = <
-        &bt BT_CLR_ALL  &none         &none           &sys_reset    &none          &none  &none   &none   &none  &none
-        &none           &bt BT_SEL 0  &studio_unlock  &bt BT_SEL 1  &none          &none  &kp T   &kp S   &kp E  &kp T
-&tog 6  &none           &bt BT_SEL 2  &bt BT_SEL 3    &bt BT_SEL 4  &bootloader    &none  &none   &none   &none  &none  &none
-                                      &none           &none         &none          &none  &tog 4  &tog 5
+        &bt BT_CLR_ALL  &studio_unlock  &none         &sys_reset    &bootloader               &none  &none  &none  &none  &none
+        &none           &none           &none         &none         &none                     &none  &kp T  &kp S  &kp E  &kp T
+&tog 0  &bt BT_SEL 0    &bt BT_SEL 1    &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4              &none  &none  &none  &none  &none  &none
+                                        &tog 0        &none         &kp LS(LA(LC(LG(N6))))    &none  &none  &none
             >;
         };
     };
