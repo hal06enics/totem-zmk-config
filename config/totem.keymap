@@ -38,7 +38,7 @@
         };
 
         symbol_ss {
-            bindings = <&tog 5>;
+            bindings = <&sl 5>;
             key-positions = <31 32>;
         };
     };
@@ -48,12 +48,12 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&macro_tap>,
+                <&macro_press>,
+                <&kp LS(LA(LC(LG(N4))))>,
+                <&macro_release>,
                 <&kp LS(LA(LC(LG(N4))))>,
                 <&macro_tap>,
-                <&kp LS(A) &kp L &kp P &kp H &kp A &kp SPACE &kp LS(S) &kp LS(S) &kp SPACE &kp LS(L) &kp A &kp Y &kp E &kp R>,
-                <&macro_tap>,
-                <&sl 4>;
+                <&kp LS(A) &kp L &kp P &kp H &kp A &kp SPACE &kp LS(S) &kp LS(S) &kp SPACE &kp LS(L) &kp A &kp Y &kp E &kp R &sl 4>;
 
             label = "ALPHA_SS_LAYER_CHECK";
         };
@@ -62,12 +62,12 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&macro_tap>,
+                <&macro_press>,
+                <&kp LS(LA(LC(LG(N5))))>,
+                <&macro_release>,
                 <&kp LS(LA(LC(LG(N5))))>,
                 <&macro_tap>,
-                <&kp LS(S) &kp Y &kp M &kp B &kp O &kp L &kp SPACE &kp LS(S) &kp LS(S) &kp SPACE &kp LS(L) &kp A &kp Y &kp E &kp R>,
-                <&macro_tap>,
-                <&sl 5>;
+                <&kp LS(S) &kp Y &kp M &kp B &kp O &kp L &kp SPACE &kp LS(S) &kp LS(S) &kp SPACE &kp LS(L) &kp A &kp Y &kp E &kp R &sl 5>;
 
             label = "SYMBOL_SS_LAYER_CHECK";
         };
@@ -76,12 +76,12 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&macro_tap>,
+                <&macro_press>,
+                <&kp LS(LA(LC(LG(N6))))>,
+                <&macro_release>,
                 <&kp LS(LA(LC(LG(N6))))>,
                 <&macro_tap>,
-                <&kp LS(A) &kp D &kp M &kp I &kp N &kp SPACE &kp LS(L) &kp A &kp Y &kp E &kp R>,
-                <&macro_tap>,
-                <&sl 6>;
+                <&kp LS(A) &kp D &kp M &kp I &kp N &kp SPACE &kp LS(L) &kp A &kp Y &kp E &kp R &sl 6>;
 
             label = "ADMIN_LAYER_CHECK";
         };
@@ -146,28 +146,28 @@
 
         Alpha.SS {
             bindings = <
-           &kp Q           &kp W           &kp E           &kp R   &kp T        &kp Y          &kp U                   &kp I            &kp O            &kp P
-           &mt LEFT_WIN A  &mt LEFT_ALT S  &kp D           &kp F   &kp G        &kp H          &kp J                   &kp K            &mt RIGHT_ALT L  &mt LEFT_WIN SEMI
-&kp LCTRL  &kp Z           &kp X           &kp C           &kp V   &kp B        &kp N          &kp M                   &kp COMMA        &kp DOT          &kp FSLH           &kp RIGHT_CONTROL
-                                           &kp LEFT_SHIFT  &tog 0  &kp SPACE    &kp BACKSPACE  &kp LS(LA(LC(LG(N4))))  &kp RIGHT_SHIFT
+           &kp Q           &kp W           &kp E           &kp R                   &kp T        &kp Y          &kp U                   &kp I            &kp O            &kp P
+           &mt LEFT_WIN A  &mt LEFT_ALT S  &kp D           &kp F                   &kp G        &kp H          &kp J                   &kp K            &mt RIGHT_ALT L  &mt LEFT_WIN SEMI
+&kp LCTRL  &kp Z           &kp X           &kp C           &kp V                   &kp B        &kp N          &kp M                   &kp COMMA        &kp DOT          &kp FSLH           &kp RIGHT_CONTROL
+                                           &kp LEFT_SHIFT  &kp LS(LA(LC(LG(N4))))  &kp SPACE    &kp BACKSPACE  &kp LS(LA(LC(LG(N4))))  &kp RIGHT_SHIFT
             >;
         };
 
         Symbol.SS {
             bindings = <
-           &kp ESC       &kp HOME       &kp UP          &kp END                 &kp F    &none  &none   &none            &none       &none
-           &mt LWIN TAB  &mt LALT LEFT  &kp DOWN        &kp RIGHT               &kp S    &none  &none   &none            &mt RALT F  &mt RWIN T
-&kp LCTRL  &kp Z         &kp X          &kp C           &kp V                   &kp A    &none  &none   &none            &none       &none       &kp RCTRL
-                                        &kp LEFT_SHIFT  &kp LS(LA(LC(LG(N5))))  &none    &none  &tog 0  &kp RIGHT_SHIFT
+           &kp ESC       &kp HOME       &kp UP          &kp END                 &kp F    &none  &none                   &none            &none       &none
+           &mt LWIN TAB  &mt LALT LEFT  &kp DOWN        &kp RIGHT               &kp S    &none  &none                   &none            &mt RALT F  &mt RWIN T
+&kp LCTRL  &kp Z         &kp X          &kp C           &kp V                   &kp A    &none  &none                   &none            &none       &none       &kp RCTRL
+                                        &kp LEFT_SHIFT  &kp LS(LA(LC(LG(N5))))  &none    &none  &kp LS(LA(LC(LG(N5))))  &kp RIGHT_SHIFT
             >;
         };
 
         ADMIN {
             bindings = <
-        &bt BT_CLR_ALL  &studio_unlock  &none         &sys_reset    &bootloader               &none  &none  &none  &none  &none
-        &none           &none           &none         &none         &none                     &none  &kp T  &kp S  &kp E  &kp T
-&tog 0  &bt BT_SEL 0    &bt BT_SEL 1    &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4              &none  &none  &none  &none  &none  &none
-                                        &tog 0        &none         &kp LS(LA(LC(LG(N6))))    &none  &none  &none
+        &bt BT_CLR_ALL  &studio_unlock  &none         &sys_reset              &bootloader     &none  &none  &none  &none  &none
+        &none           &none           &none         &none                   &none           &none  &kp T  &kp S  &kp E  &kp T
+&tog 0  &bt BT_SEL 0    &bt BT_SEL 1    &bt BT_SEL 2  &bt BT_SEL 3            &bt BT_SEL 4    &none  &none  &none  &none  &none  &none
+                                        &tog 0        &kp LS(LA(LC(LG(N6))))  &none           &none  &none  &none
             >;
         };
     };
