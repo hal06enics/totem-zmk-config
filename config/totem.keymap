@@ -125,19 +125,19 @@
 
         NAV {
             bindings = <
-       &kp ESC      &kp HOME   &kp UP_ARROW    &kp END    &kp RC(F)    &kp NUMBER_3           &kp KP_N7        &kp KP_N8        &kp KP_N9  &kp RGUI
-       &kp LA(TAB)  &kp LEFT   &kp DOWN_ARROW  &kp RIGHT  &kp RC(S)    &kp NUMBER_2           &kp KP_N4        &kp KP_N5        &kp KP_N6  &kp RCTRL
-&sl 6  &kp RC(Z)    &kp RC(X)  &kp RC(C)       &kp RC(V)  &kp RC(A)    &kp NUMBER_1           &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_N3  &kp RALT   &kp KP_NUMLOCK
-                               &trans          &trans     &trans       &mt RIGHT_SHIFT ENTER  &mt RCTRL KP_N0  &kp DEL
+        &kp ESC    &kp HOME   &kp UP_ARROW    &kp END    &kp RC(F)    &kp NUMBER_3           &kp KP_N7        &kp KP_N8        &kp KP_N9  &kp RGUI
+        &kp TAB    &kp LEFT   &kp DOWN_ARROW  &kp RIGHT  &kp RC(S)    &kp NUMBER_2           &kp KP_N4        &kp KP_N5        &kp KP_N6  &kp RCTRL
+&tog 6  &kp RC(Z)  &kp RC(X)  &kp RC(C)       &kp RC(V)  &kp RC(A)    &kp NUMBER_1           &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_N3  &kp RALT   &kp KP_NUMLOCK
+                              &trans          &trans     &trans       &mt RIGHT_SHIFT ENTER  &mt RCTRL KP_N0  &kp DEL
             >;
         };
 
         CODE {
             bindings = <
-              &kp ESC    &kp AT     &kp HASH            &kp PERCENT  &none      &kp BACKSLASH  &kp PIPE   &kp AMPS           &kp LPAR        &kp RPAR
-              &kp PLUS   &kp UNDER  &kp EQUAL           &kp MINUS    &none      &kp F2         &kp APOS   &kp DOUBLE_QUOTES  &kp LEFT_BRACE  &kp RBRC
-&kp CAPSLOCK  &kp RC(Y)  &kp CARET  &kp STAR            &kp DOLLAR   &none      &kp TILDE      &kp GRAVE  &kp LBKT           &kp RBKT        &kp EXCL  &caps_word
-                                    &kp LA(LC(DELETE))  &mo 3        &kp TAB    &trans         &trans     &trans
+              &kp ESC    &kp AT     &kp HASH            &kp PERCENT  &none          &kp BACKSLASH  &kp PIPE   &kp AMPS           &kp LPAR        &kp RPAR
+              &kp PLUS   &kp UNDER  &kp EQUAL           &kp MINUS    &none          &kp F2         &kp APOS   &kp DOUBLE_QUOTES  &kp LEFT_BRACE  &kp RBRC
+&kp CAPSLOCK  &kp RC(Y)  &kp CARET  &kp STAR            &kp DOLLAR   &none          &kp TILDE      &kp GRAVE  &kp LBKT           &kp RBKT        &kp EXCL  &caps_word
+                                    &kp LA(LC(DELETE))  &mo 3        &kp LA(TAB)    &trans         &trans     &trans
             >;
         };
 
@@ -170,10 +170,10 @@
 
         ADMIN {
             bindings = <
-        &bt BT_CLR_ALL  &studio_unlock  &none         &sys_reset              &bootloader     &none  &none  &none  &none  &none
-        &none           &none           &none         &none                   &none           &none  &kp T  &kp S  &kp E  &kp T
-&tog 6  &bt BT_SEL 0    &bt BT_SEL 1    &bt BT_SEL 2  &bt BT_SEL 3            &bt BT_SEL 4    &none  &none  &none  &none  &none  &none
-                                        &kp LSHIFT    &kp LS(LA(LC(LG(N6))))  &tog 6          &none  &none  &none
+        &bt BT_CLR_ALL  &studio_unlock  &none         &sys_reset    &bootloader     &none  &none  &none  &none  &none
+        &none           &none           &none         &none         &none           &none  &kp T  &kp S  &kp E  &kp T
+&tog 6  &bt BT_SEL 0    &bt BT_SEL 1    &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &none  &none  &none  &none  &none  &none
+                                        &kp LSHIFT    &tog 0        &tog 6          &none  &none  &none
             >;
         };
     };
