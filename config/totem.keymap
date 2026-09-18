@@ -13,6 +13,10 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/outputs.h>
+
+// Adding pointing.h to be able to right and middle click
+// https://zmk.dev/docs/keymaps/behaviors/mouse-emulation
 #include <dt-bindings/zmk/pointing.h>
 
 #define BASE 0
@@ -21,6 +25,51 @@
 #define ADJ  3
 #define TVP1 4
 #define TVP2 5
+
+#define KEYS_L 0 1 2 3 4 5 12 13 14 15 16 17 24 25 26 27 28 29
+#define KEYS_R 6 7 8 9 10 11 18 19 20 21 22 23 30 31 32 33 34 35
+// Used only by macOS A/Command. Position 30 is N, which must not turn an A-N roll into Command+N.
+#define KEYS_R_EXCEPT_N 6 7 8 9 10 11 18 19 20 21 22 23 31 32 33 34 35
+#define THUMBS 36 37 38 39 40 41
+#define HRM_PRIOR_IDLE_MS 150
+#define HRM_MAC_A_TAPPING_TERM_MS 200
+
+/ {
+    behaviors {
+        // Testing urob's timeless home-row mods:
+        // https://github.com/urob/zmk-config#timeless-homerow-mods
+        // Cross-hand shortcuts can resolve immediately; same-hand shortcuts still
+        // require holding past tapping-term-ms before pressing the next key.
+        hrm_l: hrm_l {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            // How long a plain hold waits before becoming the modifier.
+            // Cross-hand shortcuts can still resolve sooner via balanced + hold-trigger-key-positions.
+            tapping-term-ms = <300>;
+            bindings = <&kp>, <&kp>;
+            flavor = "balanced";
+            // If this HRM is tapped and quickly pressed again, keep the second press as a tap.
+            // Useful for repeating letters without the second press becoming the modifier.
+            quick-tap-ms = <300>;
+            // If pressed within this window after a normal key, force a tap so fast typing stays immediate.
+            // Lower this if intended HRM shifts/mods are blocked while typing quickly;
+            // raise it if fast rolls accidentally trigger modifiers.
+            require-prior-idle-ms = <HRM_PRIOR_IDLE_MS>;
+            hold-trigger-key-positions = <KEYS_R THUMBS>;
+            hold-trigger-on-release;
+        };
+
+        hrm_r: hrm_r {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <300>;
+            bindings = <&kp>, <&kp>;
+            flavor = "balanced";
+            quick-tap-ms = <300>;
+            require-prior-idle-ms = <HRM_PRIOR_IDLE_MS>;
+            hold-trigger-key-positions = <KEYS_L THUMBS>;
+            hold-trigger-on-release;
+};
 
 &mt {
     quick-tap-ms = <100>;
