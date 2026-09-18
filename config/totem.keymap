@@ -153,7 +153,7 @@
         ADMIN {
             bindings = <
        &studio_unlock  &none       &none       &none       &sys_reset     &none  &none  &none  &none  &none
-       &none           &bt BT_PRV  &Admin_LC   &bt BT_NXT  &none          &none  &kp T  &kp S  &kp E  &kp T
+       &none           &bt BT_PRV  &none       &bt BT_NXT  &none          &none  &kp T  &kp S  &kp E  &kp T
 &none  &bt BT_CLR_ALL  &none       &bt BT_CLR  &none       &bootloader    &none  &none  &none  &none  &none  &none
                                    &none       &mo 6       &tog 6         &none  &none  &none
             >;
