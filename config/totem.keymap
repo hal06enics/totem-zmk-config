@@ -107,19 +107,19 @@
 
         BASE_HRM {
             bindings = <
-        &kp Q        &kp W       &kp E           &kp R  &kp T        &kp Y          &kp U  &kp I            &kp O       &kp P
-        &mt LCTRL A  &mt LGUI S  &mt LALT D      &kp F  &kp G        &kp H          &kp J  &mt RALT K       &mt RGUI L  &mt RCTRL SEMI
-&tog 2  &kp Z        &kp X       &kp C           &kp V  &kp B        &kp N          &kp M  &kp COMMA        &kp DOT     &kp FSLH        &tog 2
-                                 &kp LEFT_SHIFT  &mo 3  &kp SPACE    &kp BACKSPACE  &mo 4  &kp RIGHT_SHIFT
+            &kp Q        &kp W        &kp E           &kp R       &kp T        &kp Y          &kp U       &kp I       &kp O        &kp P
+            &mt LCTRL A  &mt LSHFT S  &mt LEFT_ALT D  &mt LGUI F  &kp G        &kp H          &mt RGUI J  &mt RALT K  &mt RSHFT L  &mt RCTRL SEMI
+&kp DELETE  &kp Z        &kp X        &kp C           &kp V       &kp B        &kp N          &kp M       &kp COMMA   &kp DOT      &kp FSLH        &kp ENTER
+                                      &mo 2           &mo 3       &kp SPACE    &kp BACKSPACE  &mo 4       &mo 2
             >;
         };
 
         SYMBOL_HRM {
             bindings = <
-        &kp ESC        &kp HOME       &kp UP          &kp END    &kp PG_UP    &kp SCROLLLOCK  &kp GRAVE  &kp INS          &kp PAUSE_BREAK  &kp PRINTSCREEN
-        &mt LCTRL TAB  &mt LGUI LEFT  &mt LALT DOWN   &kp RIGHT  &kp PG_DN    &kp KP_NUMLOCK  &kp MINUS  &mt LALT EQUAL   &mt RGUI LBKT    &mt RCTRL RBKT
-&tog 2  &kp N1         &kp N2         &kp N3          &kp N4     &kp N5       &kp N6          &kp N7     &kp N8           &kp N9           &kp N0           &tog 2
-                                      &kp LEFT_SHIFT  &mo 3      &kp DEL      &kp ENTER       &mo 4      &kp RIGHT_SHIFT
+          &kp ESC        &kp HOME        &kp UP         &kp END         &kp PG_UP    &kp MINUS         &kp N7             &kp N8        &kp N9              &kp EQUAL
+          &mt LCTRL TAB  &mt LSHFT LEFT  &mt LALT DOWN  &mt LGUI RIGHT  &kp PG_DN    &kp LEFT_BRACKET  &mt RGUI NUMBER_4  &mt RALT N5   &mt RSHFT NUMBER_6  &mt RCTRL RIGHT_BRACKET
+&kp CAPS  &none          &none           &none          &none           &none        &none             &kp NUMBER_1       &kp NUMBER_2  &kp NUMBER_3        &none                    &kp KP_NUMLOCK
+                                         &trans         &none           &none        &none             &kp N0             &trans
             >;
         };
 
