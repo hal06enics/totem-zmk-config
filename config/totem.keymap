@@ -116,7 +116,7 @@ ZMK_HOLD_TAP(hmr,
             bindings = <
            &kp Q  &kp W  &kp E           &kp R  &kp T        &kp Y     &kp U  &kp I            &kp O    &kp P
            &kp A  &kp S  &kp D           &kp F  &kp G        &kp H     &kp J  &kp K            &kp L    &kp SEMI
-&kp LCTRL  &kp Z  &kp X  &kp C           &kp V  &kp B        &kp N     &kp M  &kp COMMA        &kp DOT  &kp FSLH  &kp RCTRL
+&studio_unlock  &kp Z  &kp X  &kp C           &kp V  &kp B        &kp N     &kp M  &kp COMMA        &kp DOT  &kp FSLH  &kp RCTRL
                          &kp LEFT_SHIFT  &mo 3  &kp SPACE    &kp BSPC  &mo 4  &kp RIGHT_SHIFT
             >;
         };
